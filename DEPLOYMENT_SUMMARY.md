@@ -19,6 +19,17 @@ This document summarizes the Vercel deployment setup for Co-Apply.
    - Documents required and optional environment variables
    - Safe to commit (no secrets)
 
+4. **.vercel/project.json** - Vercel project linkage configuration
+   - Links repository to existing 'co-apply' Vercel project
+   - Contains placeholder project and org IDs
+   - Updated automatically by Vercel CLI on deployment
+   - Prevents accidental creation of duplicate projects
+
+5. **.vercel/README.md** - Project configuration documentation
+   - Instructions for obtaining project IDs
+   - Notes for contributors about deployment access
+   - Explains the project linkage system
+
 ### API Layer
 
 4. **api/index.py** - Flask-based web application
@@ -162,6 +173,9 @@ All 5/5 tests passed successfully!
 Co-Apply/
 ├── api/
 │   └── index.py              # Flask application
+├── .vercel/                  # Vercel project configuration
+│   ├── project.json          # Project linkage (placeholder IDs)
+│   └── README.md             # Configuration documentation
 ├── examples/
 │   ├── README.md             # Examples guide
 │   └── api_usage_example.py  # Usage examples
@@ -212,17 +226,25 @@ Co-Apply/
 
 ## 🎯 Next Steps
 
-1. **Deploy to Vercel**
+> **Note**: This repository is linked to an existing Vercel project named 'co-apply'. Use `vercel link` to connect to it if you have access.
+
+1. **Link to Existing Project (Recommended)**
    ```bash
-   vercel
+   vercel link
+   ```
+   Select the 'co-apply' project when prompted.
+
+2. **Deploy to Vercel**
+   ```bash
+   vercel --prod
    ```
 
-2. **Test Your Deployment**
+3. **Test Your Deployment**
    ```bash
    python test_api.py --url https://your-app.vercel.app
    ```
 
-3. **Set Up GitHub Integration**
+4. **Set Up GitHub Integration**
    - Connect repo to Vercel
    - Enable automatic deployments
 
