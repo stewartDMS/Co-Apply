@@ -19,5 +19,8 @@ llama-cpp-python>=0.2.0; platform_machine != "wasm32"
 click>=8.1.0
 rich>=13.0.0
 
+# Web API (for Vercel deployment)
+flask>=3.0.0
+
 # Database
 sqlite3; python_version >= "3.0"

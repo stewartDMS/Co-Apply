@@ -259,6 +259,47 @@ tracker.export_to_json('data/backup/applications.json')
 - **Optional LLM**: Use local models if needed
 - **Data Control**: Full control over your data with JSON exports
 
+## 🌐 Deployment
+
+Co-Apply can be deployed as a web application with a REST API on Vercel.
+
+### Quick Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/stewartDMS/Co-Apply)
+
+### Manual Deployment
+
+1. **Fork or clone this repository**
+2. **Sign up for [Vercel](https://vercel.com)** (free tier available)
+3. **Import your repository** in Vercel dashboard
+4. **Deploy** - Vercel will automatically detect the configuration
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
+### API Endpoints
+
+Once deployed, the following endpoints are available:
+
+- `GET /api/health` - Health check
+- `GET /api/version` - Get version info
+- `POST /api/parse-job` - Parse job descriptions
+- `POST /api/analyze-match` - Analyze achievement-job matches
+- `POST /api/ats-analyze` - Analyze ATS compatibility
+
+### Testing Your Deployment
+
+```bash
+# Test health endpoint
+curl https://your-app.vercel.app/api/health
+
+# Test job parsing
+curl -X POST https://your-app.vercel.app/api/parse-job \
+  -H "Content-Type: application/json" \
+  -d '{"description":"Looking for a Python developer...","job_id":"test-001","title":"Python Developer","company":"Test Corp"}'
+```
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for complete testing instructions and API documentation.
+
 ## 🤝 Contributing
 
 Contributions are welcome! Areas for improvement:

@@ -1,0 +1,196 @@
+# Co-Apply Vercel Deployment Architecture
+
+## Request Flow
+
+┌─────────────────────────────────────────────────────────────────┐
+│                         USER/CLIENT                              │
+│  (Browser, curl, Python requests, Mobile App, etc.)            │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             │ HTTPS Request
+                             │
+┌────────────────────────────▼────────────────────────────────────┐
+│                      VERCEL EDGE NETWORK                         │
+│  • Global CDN                                                    │
+│  • SSL/TLS Termination                                           │
+│  • DDoS Protection                                               │
+│  • Automatic Scaling                                             │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             │ Route Request
+                             │
+┌────────────────────────────▼────────────────────────────────────┐
+│                    SERVERLESS FUNCTION                           │
+│                    (api/index.py)                                │
+│                                                                  │
+│  ┌───────────────────────────────────────────────────┐          │
+│  │              Flask Application                     │          │
+│  │                                                    │          │
+│  │  Routes:                                           │          │
+│  │  ├─ GET  /              → Landing Page            │          │
+│  │  ├─ GET  /api/health    → Health Check            │          │
+│  │  ├─ GET  /api/version   → Version Info            │          │
+│  │  ├─ POST /api/parse-job → Parse Job Desc          │          │
+│  │  ├─ POST /api/analyze-match → Match Analysis      │          │
+│  │  └─ POST /api/ats-analyze → ATS Analysis          │          │
+│  └────────────────────┬──────────────────────────────┘          │
+│                       │                                          │
+│                       │ Import Modules                           │
+│                       │                                          │
+│  ┌────────────────────▼──────────────────────────────┐          │
+│  │         Co-Apply Core Modules                     │          │
+│  │                                                    │          │
+│  │  ├─ core/                                          │          │
+│  │  │  ├─ job_parser.py      (Parse jobs)            │          │
+│  │  │  └─ achievement_library.py (Manage data)       │          │
+│  │  │                                                 │          │
+│  │  └─ analysis/                                      │          │
+│  │     ├─ matcher.py         (Match achievements)    │          │
+│  │     └─ ats_analyzer.py    (ATS scoring)           │          │
+│  └───────────────────────────────────────────────────┘          │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             │ JSON Response
+                             │
+┌────────────────────────────▼────────────────────────────────────┐
+│                         RESPONSE                                 │
+│  {                                                               │
+│    "success": true,                                              │
+│    "data": { ... }                                               │
+│  }                                                               │
+└──────────────────────────────────────────────────────────────────┘
+
+
+## Deployment Components
+
+┌──────────────────────────────────────────────────────────────────┐
+│                    GITHUB REPOSITORY                              │
+│  stewartDMS/Co-Apply                                             │
+│                                                                  │
+│  ├─ api/                  Flask API wrapper                      │
+│  ├─ src/                  Core Co-Apply modules                  │
+│  ├─ vercel.json           Deployment config                      │
+│  ├─ requirements.txt      Python dependencies                    │
+│  └─ Documentation         Guides and references                  │
+└────────────────────────────┬─────────────────────────────────────┘
+                             │
+                             │ Connected via
+                             │ GitHub Integration
+                             │
+┌────────────────────────────▼─────────────────────────────────────┐
+│                      VERCEL PLATFORM                              │
+│                                                                  │
+│  Build Process:                                                  │
+│  ├─ 1. Clone repository                                          │
+│  ├─ 2. Install dependencies (pip install -r requirements.txt)    │
+│  ├─ 3. Build serverless functions (@vercel/python)               │
+│  └─ 4. Deploy to global edge network                             │
+│                                                                  │
+│  Environments:                                                   │
+│  ├─ Production   (main branch)                                   │
+│  └─ Preview      (pull requests)                                 │
+└──────────────────────────────────────────────────────────────────┘
+
+
+## Data Flow - Example: Job Parsing
+
+1. USER sends POST request:
+   POST https://your-app.vercel.app/api/parse-job
+   {
+     "description": "Python developer needed...",
+     "job_id": "job-001",
+     "title": "Python Developer"
+   }
+
+2. VERCEL routes to serverless function
+
+3. FLASK app receives request, calls JobParser
+
+4. JOBPARSER extracts:
+   - Skills (Python, Django, etc.)
+   - Requirements
+   - Responsibilities
+
+5. API returns JSON response:
+   {
+     "success": true,
+     "job": {
+       "id": "job-001",
+       "skills_required": ["Python", "Django"],
+       ...
+     }
+   }
+
+
+## Testing Flow
+
+┌──────────────────────────────────────────────────────────────────┐
+│                    LOCAL DEVELOPMENT                              │
+│                                                                  │
+│  Developer Machine                                               │
+│  ├─ Edit code                                                    │
+│  ├─ Run: bash scripts/test_deployment.sh                         │
+│  ├─ Test endpoints locally                                       │
+│  └─ Commit & push                                                │
+└────────────────────────────┬─────────────────────────────────────┘
+                             │
+                             │ Git Push
+                             │
+┌────────────────────────────▼─────────────────────────────────────┐
+│                    VERCEL AUTO-DEPLOY                             │
+│                                                                  │
+│  ├─ Detect changes                                               │
+│  ├─ Run build                                                    │
+│  ├─ Deploy preview (PR)                                          │
+│  └─ Deploy production (main)                                     │
+└────────────────────────────┬─────────────────────────────────────┘
+                             │
+                             │ Deployment URL
+                             │
+┌────────────────────────────▼─────────────────────────────────────┐
+│                    TESTING & VALIDATION                           │
+│                                                                  │
+│  ├─ Run: python test_api.py --url <deployment-url>              │
+│  ├─ Manual testing via browser                                   │
+│  ├─ Monitor Vercel dashboard                                     │
+│  └─ Check logs for errors                                        │
+└──────────────────────────────────────────────────────────────────┘
+
+
+## File Organization
+
+Repository Root
+│
+├── api/                          # Vercel serverless functions
+│   └── index.py                  # Main Flask application
+│
+├── src/                          # Original Co-Apply CLI code
+│   └── co_apply/                 # Python package
+│       ├── core/                 # Core modules
+│       ├── analysis/             # Analysis modules
+│       └── generators/           # Document generators
+│
+├── examples/                     # Usage examples
+│   ├── api_usage_example.py      # API usage demo
+│   └── README.md                 # Examples guide
+│
+├── scripts/                      # Utility scripts
+│   └── test_deployment.sh        # Deployment testing
+│
+├── Configuration Files
+│   ├── vercel.json               # Vercel config
+│   ├── .vercelignore            # Deployment exclusions
+│   ├── .env.example             # Environment template
+│   └── requirements.txt          # Python dependencies
+│
+├── Testing
+│   └── test_api.py               # API test suite
+│
+└── Documentation
+    ├── DEPLOYMENT.md             # Full deployment guide
+    ├── API_REFERENCE.md          # API documentation
+    ├── VERCEL_QUICKSTART.md      # Quick start guide
+    ├── DEPLOYMENT_SUMMARY.md     # This summary
+    ├── DEPLOYMENT_ARCHITECTURE.txt # Architecture diagram
+    └── README.md                 # Main project README
+

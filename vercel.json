@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "name": "co-apply",
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/index.py"
+    }
+  ],
+  "env": {
+    "PYTHONPATH": "/var/task/src"
+  },
+  "build": {
+    "env": {
+      "PYTHONPATH": "/var/task/src"
+    }
+  }
+}
