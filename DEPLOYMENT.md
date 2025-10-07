@@ -2,6 +2,8 @@
 
 This guide provides instructions for deploying Co-Apply to Vercel as a web application with a REST API.
 
+> **📌 Important Note**: This repository is configured to deploy to an **existing Vercel project** named 'co-apply'. Contributors and maintainers should link to this existing project rather than creating new ones. See the "Deployment via Vercel CLI" section for instructions on linking to the existing project.
+
 ## 🚀 Quick Deploy to Vercel
 
 ### Prerequisites
@@ -9,6 +11,7 @@ This guide provides instructions for deploying Co-Apply to Vercel as a web appli
 1. A [Vercel account](https://vercel.com/signup)
 2. [Vercel CLI](https://vercel.com/docs/cli) installed (optional, but recommended)
 3. GitHub account with this repository
+4. Access to the existing 'co-apply' Vercel project (for contributors with deployment permissions)
 
 ### One-Click Deploy
 
@@ -60,24 +63,53 @@ Click the button above to deploy Co-Apply to Vercel with one click.
    vercel login
    ```
 
-3. **Deploy**
+3. **Link to Existing Project (Recommended)**
+   
+   This repository is configured to deploy to an existing Vercel project named 'co-apply'.
+   
    ```bash
    cd Co-Apply
+   vercel link
+   ```
+   
+   Follow the prompts:
+   - Link to existing project: **Y**
+   - Which scope: **(select the appropriate account/organization)**
+   - Link to which project: **co-apply**
+   
+   > **Note**: If you don't have access to the existing project, contact the repository maintainer or create your own deployment by following the "Alternative: Create New Project" section below.
+
+4. **Deploy**
+   ```bash
    vercel
    ```
-
-4. **Follow the prompts:**
-   - Set up and deploy: Y
-   - Which scope: (select your account)
-   - Link to existing project: N
-   - Project name: co-apply (or your preferred name)
-   - In which directory: ./
-   - Override settings: N
 
 5. **Production Deployment**
    ```bash
    vercel --prod
    ```
+
+### Alternative: Create New Project
+
+If you need to create a new Vercel project (not recommended for contributors):
+
+```bash
+cd Co-Apply
+vercel
+```
+
+Follow the prompts:
+- Set up and deploy: Y
+- Which scope: (select your account)
+- Link to existing project: N
+- Project name: co-apply-fork (use a different name)
+- In which directory: ./
+- Override settings: N
+
+Then deploy to production:
+```bash
+vercel --prod
+```
 
 ## 📋 Configuration Files
 
@@ -115,6 +147,24 @@ All Python dependencies are listed in `requirements.txt` and will be automatical
 ### .vercelignore
 
 Similar to `.gitignore`, this file specifies which files should not be uploaded to Vercel.
+
+### .vercel/project.json
+
+This file links the repository to the existing Vercel project. It contains:
+
+```json
+{
+  "projectId": "prj_PLACEHOLDER_VERCEL_PROJECT_ID",
+  "orgId": "team_PLACEHOLDER_VERCEL_ORG_ID"
+}
+```
+
+**Important Notes:**
+- The repository contains placeholder IDs for documentation purposes
+- When you run `vercel link` or deploy, the CLI will update this file with actual project IDs
+- The `.vercel` directory (except placeholder files) is in `.gitignore` to prevent committing sensitive project information
+- Contributors can use `vercel link` to connect to the existing project if they have access
+- See `.vercel/README.md` for more details on obtaining project IDs
 
 ## 🌐 API Endpoints
 

@@ -68,3 +68,6 @@ models/
 
 # Vercel
 .vercel
+# But keep the placeholder configuration
+!.vercel/project.json
+!.vercel/README.md
