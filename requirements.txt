@@ -23,4 +23,5 @@ rich>=13.0.0
 flask>=3.0.0
 
 # Database
-sqlite3; python_version >= "3.0"
+# Note: sqlite3 is part of Python's standard library (included by default)
+# and should NOT be listed as a pip dependency
