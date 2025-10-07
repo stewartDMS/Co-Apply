@@ -43,8 +43,6 @@ htmlcov/
 *.db
 *.sqlite
 *.sqlite3
-
-# User data
 data/user_achievements.json
 data/job_descriptions/
 data/generated_documents/
@@ -61,10 +59,21 @@ Thumbs.db
 playwright-state.json
 screenshots/
 
-# Models (if downloaded)
+# Models
 models/
 *.gguf
 *.bin
 
-# Vercel
-.vercel
+# Git
+.git/
+.gitignore
+
+# Documentation (keep these out of deployment)
+tests/
+demo.py
+ARCHITECTURE.md
+CONTRIBUTING.md
+FEATURES.md
+PROJECT_SUMMARY.md
+QUICK_REFERENCE.md
+USAGE_GUIDE.md
