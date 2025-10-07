@@ -1,0 +1,69 @@
+{
+  "profile": {
+    "name": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "San Francisco, CA",
+    "linkedin": "https://linkedin.com/in/janedoe",
+    "github": "https://github.com/janedoe",
+    "website": "https://janedoe.dev",
+    "summary": "Experienced software engineer with 5+ years in full-stack development"
+  },
+  "achievements": [
+    {
+      "id": "ach_001",
+      "title": "Led migration to microservices architecture",
+      "description": "Led a team of 5 engineers to migrate monolithic application to microservices, improving system scalability and reducing deployment time",
+      "category": "leadership",
+      "skills": ["Python", "Docker", "Kubernetes", "AWS", "Leadership"],
+      "keywords": ["microservices", "architecture", "migration", "scalability", "devops"],
+      "impact": "Reduced deployment time from 2 hours to 15 minutes",
+      "metrics": "40+ services deployed, 99.9% uptime achieved",
+      "date": "2023-01 to 2023-06"
+    },
+    {
+      "id": "ach_002",
+      "title": "Developed real-time analytics dashboard",
+      "description": "Built a real-time analytics dashboard using React and WebSockets to visualize user behavior and system metrics",
+      "category": "technical",
+      "skills": ["React", "JavaScript", "WebSockets", "D3.js", "Node.js"],
+      "keywords": ["analytics", "dashboard", "real-time", "visualization", "frontend"],
+      "impact": "Enabled data-driven decision making for product team",
+      "metrics": "Processing 10K+ events per second, used by 50+ stakeholders",
+      "date": "2022-09 to 2023-01"
+    },
+    {
+      "id": "ach_003",
+      "title": "Optimized database queries for performance",
+      "description": "Identified and optimized slow database queries, implemented caching strategies, and redesigned database schema",
+      "category": "technical",
+      "skills": ["PostgreSQL", "SQL", "Redis", "Performance Optimization"],
+      "keywords": ["database", "optimization", "performance", "caching", "sql"],
+      "impact": "Improved API response time by 70%",
+      "metrics": "Reduced average query time from 500ms to 150ms",
+      "date": "2022-06 to 2022-09"
+    },
+    {
+      "id": "ach_004",
+      "title": "Implemented CI/CD pipeline",
+      "description": "Designed and implemented automated CI/CD pipeline using GitHub Actions, reducing manual deployment efforts",
+      "category": "technical",
+      "skills": ["GitHub Actions", "CI/CD", "Docker", "Testing", "DevOps"],
+      "keywords": ["cicd", "automation", "testing", "deployment", "github"],
+      "impact": "Reduced deployment errors by 80%",
+      "metrics": "100+ successful automated deployments per month",
+      "date": "2022-03 to 2022-06"
+    },
+    {
+      "id": "ach_005",
+      "title": "Mentored junior developers",
+      "description": "Mentored 3 junior developers through code reviews, pair programming sessions, and technical guidance",
+      "category": "leadership",
+      "skills": ["Mentoring", "Code Review", "Communication", "Leadership"],
+      "keywords": ["mentoring", "leadership", "code review", "training"],
+      "impact": "All mentees promoted within 12 months",
+      "metrics": "Conducted 50+ code reviews, 20+ pair programming sessions",
+      "date": "2021-01 to Present"
+    }
+  ]
+}
