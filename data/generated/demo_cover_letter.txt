@@ -15,7 +15,7 @@ In my previous role, Led a team of 5 engineers to migrate monolithic application
 
 In my previous role, Identified and optimized slow database queries, implemented caching strategies, and redesigned database schema Improved API response time by 70% Specifically, Reduced average query time from 500ms to 150ms. This experience demonstrates my proficiency in postgresql, sql, redis, which I understand are key requirements for the Senior Software Engineer - Backend role.
 
-My technical expertise includes docker, python, ci/cd, sql, and postgresql, all of which align directly with the requirements outlined in your job description. I am committed to staying current with industry best practices and continuously expanding my skill set to drive innovation and efficiency.
+My technical expertise includes ci/cd, sql, postgresql, python, and docker, all of which align directly with the requirements outlined in your job description. I am committed to staying current with industry best practices and continuously expanding my skill set to drive innovation and efficiency.
 
 I am enthusiastic about the opportunity to contribute to TechCorp and would welcome the chance to discuss how my background and skills would be an asset to your team. Thank you for considering my application.
 
