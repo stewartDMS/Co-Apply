@@ -1,0 +1,48 @@
+# {{ profile.name }}
+
+{% if profile.email or profile.phone or profile.location -%}
+{% if profile.email %}📧 {{ profile.email }}{% endif %}{% if profile.phone %} | 📱 {{ profile.phone }}{% endif %}{% if profile.location %} | 📍 {{ profile.location }}{% endif %}
+{% endif %}
+
+{% if profile.linkedin or profile.github or profile.website -%}
+{% if profile.linkedin %}[LinkedIn]({{ profile.linkedin }}){% endif %}{% if profile.github %} | [GitHub]({{ profile.github }}){% endif %}{% if profile.website %} | [Website]({{ profile.website }}){% endif %}
+{% endif %}
+
+---
+
+## Professional Summary
+
+{{ summary }}
+
+## Skills
+
+{{ skills | join(' • ') }}
+
+## Professional Experience & Achievements
+
+{% for match in achievements[:10] %}
+### {{ match.achievement.title }}
+{% if match.achievement.date %}
+*{{ match.achievement.date }}*
+{% endif %}
+
+{{ match.achievement.description }}
+
+{% if match.achievement.impact %}
+**Impact:** {{ match.achievement.impact }}
+{% endif %}
+
+{% if match.achievement.metrics %}
+**Metrics:** {{ match.achievement.metrics }}
+{% endif %}
+
+{% if match.matched_skills %}
+**Key Skills:** {{ match.matched_skills | join(', ') }}
+{% endif %}
+
+{% endfor %}
+
+---
+
+*Tailored for {{ job_title }} at {{ job_company }}*  
+*Generated on {{ generated_date }}*

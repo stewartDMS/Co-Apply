@@ -1,0 +1,39 @@
+{
+  "id": "backend-001",
+  "title": "Senior Software Engineer - Backend",
+  "company": "TechCorp",
+  "location": null,
+  "description": "Senior Software Engineer - Backend We are seeking an experienced Senior Software Engineer to join our backend team. You will be responsible for designing, developing, and maintaining scalable backend services that power our platform. - Design and implement scalable microservices using Python and Go",
+  "requirements": [],
+  "responsibilities": [
+    "We are seeking an experienced Senior Software Engineer to join our backend team. You will be responsible for designing, developing, and maintaining scalable backend services that power our platform."
+  ],
+  "skills_required": [
+    "Python",
+    "Go",
+    "Scala",
+    "R",
+    "SQL",
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB",
+    "Redis",
+    "AWS",
+    "Azure",
+    "GCP",
+    "Docker",
+    "Kubernetes",
+    "CI/CD",
+    "Communication",
+    "Agile",
+    "Scrum"
+  ],
+  "skills_preferred": [],
+  "education": "Bachelor's degree in Computer Science or related field\n\nWhat We Offer",
+  "experience": "5+ years of",
+  "salary_range": "$140,000 - $180,000",
+  "job_type": "full-time",
+  "url": null,
+  "posted_date": null,
+  "raw_text": "Senior Software Engineer - Backend\n\nAbout the Role:\nWe are seeking an experienced Senior Software Engineer to join our backend team. You will be responsible for designing, developing, and maintaining scalable backend services that power our platform.\n\nResponsibilities:\n- Design and implement scalable microservices using Python and Go\n- Collaborate with cross-functional teams to define and ship new features\n- Optimize application performance and database queries\n- Mentor junior engineers and conduct code reviews\n- Participate in on-call rotation and incident response\n- Contribute to architectural decisions and technical strategy\n\nRequirements:\n- 5+ years of professional software development experience\n- Strong proficiency in Python or Go\n- Experience with microservices architecture and RESTful APIs\n- Solid understanding of relational databases (PostgreSQL, MySQL)\n- Experience with cloud platforms (AWS, GCP, or Azure)\n- Strong knowledge of Docker and container orchestration (Kubernetes)\n- Experience with CI/CD pipelines and DevOps practices\n- Excellent problem-solving and communication skills\n\nPreferred Qualifications:\n- Experience with message queues (RabbitMQ, Kafka)\n- Knowledge of NoSQL databases (MongoDB, Redis)\n- Experience with monitoring and observability tools (Prometheus, Grafana)\n- Contributions to open-source projects\n- Experience with Agile/Scrum methodologies\n- Bachelor's degree in Computer Science or related field\n\nWhat We Offer:\n- Competitive salary range: $140,000 - $180,000\n- Comprehensive health benefits\n- 401(k) with company match\n- Flexible work arrangements (remote/hybrid)\n- Professional development budget\n- Stock options\n\nLocation: San Francisco, CA (Hybrid)\nJob Type: Full-time\n"
+}

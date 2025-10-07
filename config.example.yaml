@@ -1,0 +1,47 @@
+# Co-Apply Configuration Example
+# Copy this to config.yaml and customize
+
+# Data paths
+data:
+  achievements_file: "data/user_achievements.json"
+  jobs_directory: "data/jobs"
+  generated_directory: "data/generated"
+  templates_directory: "data/templates"
+  database: "data/applications.db"
+
+# Document generation settings
+generation:
+  default_cv_format: "markdown"
+  default_cover_letter_tone: "professional"
+  default_cover_letter_length: "medium"
+  include_all_skills: false
+
+# Matching settings
+matching:
+  relevance_threshold: 0.3  # 0-1, filter achievements below this score
+  max_achievements_in_cv: 10
+  max_achievements_in_cover_letter: 3
+
+# ATS analysis settings
+ats:
+  min_keyword_frequency: 1
+  recommended_score_threshold: 70  # percentage
+
+# Autofill settings (optional)
+autofill:
+  headless: false  # Show browser window
+  screenshot_on_complete: true
+  auto_submit: false  # Never auto-submit for safety
+  wait_time: 2  # seconds to wait between actions
+
+# LLM settings (optional)
+llm:
+  enabled: false
+  model_path: "models/llama-2-7b-chat.gguf"
+  temperature: 0.7
+  max_tokens: 512
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "co-apply.log"

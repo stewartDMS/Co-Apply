@@ -1,0 +1,24 @@
+Jane Doe
+jane.doe@example.com
++1 (555) 123-4567
+San Francisco, CA
+
+October 07, 2025
+
+Hiring Manager
+TechCorp
+
+
+I am writing to express my strong interest in the Senior Software Engineer - Backend position at TechCorp. With my background and experience, I am confident I can contribute significantly to your team.
+
+In my previous role, Led a team of 5 engineers to migrate monolithic application to microservices, improving system scalability and reducing deployment time Reduced deployment time from 2 hours to 15 minutes Specifically, 40+ services deployed, 99.9% uptime achieved. This experience demonstrates my proficiency in python, docker, kubernetes, which I understand are key requirements for the Senior Software Engineer - Backend role.
+
+In my previous role, Identified and optimized slow database queries, implemented caching strategies, and redesigned database schema Improved API response time by 70% Specifically, Reduced average query time from 500ms to 150ms. This experience demonstrates my proficiency in postgresql, sql, redis, which I understand are key requirements for the Senior Software Engineer - Backend role.
+
+My technical expertise includes ci/cd, sql, postgresql, python, and docker, all of which align directly with the requirements outlined in your job description. I am committed to staying current with industry best practices and continuously expanding my skill set to drive innovation and efficiency.
+
+I am enthusiastic about the opportunity to contribute to TechCorp and would welcome the chance to discuss how my background and skills would be an asset to your team. Thank you for considering my application.
+
+Sincerely,
+
+Jane Doe
