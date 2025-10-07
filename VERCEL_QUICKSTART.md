@@ -43,7 +43,38 @@ cd Co-Apply
 vercel login
 ```
 
-### Step 4: Deploy
+### Step 4: Link to Existing Project
+
+This repository is configured for the existing 'co-apply' Vercel project.
+
+```bash
+vercel link
+```
+
+Follow the prompts:
+- Link to existing project? **Yes**
+- Which scope? **(select the account with the co-apply project)**
+- Link to which project? **co-apply**
+
+> **For Contributors**: If you don't have access to the main project, you can create your own fork deployment. See "Alternative Setup" below.
+
+### Step 5: Deploy
+
+```bash
+vercel
+```
+
+### Step 6: Deploy to Production
+
+```bash
+vercel --prod
+```
+
+Your app is now live! 🎊
+
+### Alternative Setup (Create Your Own Project)
+
+If you're forking and need your own deployment:
 
 ```bash
 vercel
@@ -53,17 +84,9 @@ Follow the prompts:
 - Set up and deploy? **Yes**
 - Which scope? **(select your account)**
 - Link to existing project? **No**
-- Project name? **co-apply** (or your choice)
+- Project name? **co-apply-fork** (use a different name)
 - In which directory is your code? **./
 - Want to override settings? **No**
-
-### Step 5: Deploy to Production
-
-```bash
-vercel --prod
-```
-
-Your app is now live! 🎊
 
 ## 📱 Connect to GitHub (Recommended)
 

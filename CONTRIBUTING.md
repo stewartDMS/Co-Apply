@@ -32,6 +32,39 @@ Thank you for your interest in contributing to Co-Apply! This document provides 
 - Ensure all tests pass before submitting PR
 - Aim for good test coverage
 
+## Vercel Deployment (For Maintainers)
+
+This repository is configured to deploy to an existing Vercel project named 'co-apply'.
+
+### Deploying Changes
+
+If you're a maintainer with access to the main Vercel project:
+
+1. **Link to the project** (first time only):
+   ```bash
+   vercel link
+   ```
+   Select the existing 'co-apply' project when prompted.
+
+2. **Deploy your changes**:
+   ```bash
+   vercel --prod
+   ```
+
+### Project Configuration
+
+- The `.vercel/project.json` file contains placeholder IDs for documentation
+- When you run `vercel link` or deploy, Vercel CLI will update this file with actual project IDs
+- The `.vercel` directory is git-ignored (except for the placeholder files)
+- **DO NOT commit** real project IDs to the repository
+
+### For Contributors Without Deployment Access
+
+If you're contributing but don't have access to the main Vercel deployment:
+- You can test your API changes locally using `python api/index.py`
+- For testing on Vercel, create your own project deployment
+- The maintainers will handle deploying your merged changes to the main project
+
 ## Areas for Contribution
 
 - **Document Formats**: Add support for LaTeX, PDF, DOCX

@@ -263,15 +263,38 @@ tracker.export_to_json('data/backup/applications.json')
 
 Co-Apply can be deployed as a web application with a REST API on Vercel.
 
+> **📌 Important**: This repository is configured to deploy to an existing Vercel project named 'co-apply'. If you're a contributor, use `vercel link` to connect to the existing project. See the [Deployment Guide](DEPLOYMENT.md) for details.
+
 ### Quick Deploy
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/stewartDMS/Co-Apply)
 
-### Manual Deployment
+### For Contributors - Link to Existing Project
 
-1. **Fork or clone this repository**
+If you have access to the main 'co-apply' Vercel project:
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Login to Vercel
+vercel login
+
+# Link to the existing project
+cd Co-Apply
+vercel link
+
+# Deploy
+vercel --prod
+```
+
+### For Forks - Create Your Own Deployment
+
+If you're forking this repository for your own use:
+
+1. **Fork this repository** on GitHub
 2. **Sign up for [Vercel](https://vercel.com)** (free tier available)
-3. **Import your repository** in Vercel dashboard
+3. **Import your forked repository** in Vercel dashboard
 4. **Deploy** - Vercel will automatically detect the configuration
 
 For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
